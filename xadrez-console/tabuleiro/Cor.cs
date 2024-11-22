@@ -3,7 +3,7 @@
 
         Branca,
         Preta,
-        Amarelo,
+        Amarela,
         Azul,
         Vermelha,
         Verde,
