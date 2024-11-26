@@ -19,35 +19,43 @@ namespace xadrez {
 
             Posicao pos = new Posicao(0,0);
 
-            pos.definirValores(posicao.linha - 1, posicao.coluna); // acima
+            // acima
+            pos.definirValores(posicao.linha - 1, posicao.coluna);
             if (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
             }
-            pos.definirValores(posicao.linha - 1, posicao.coluna + 1); // diagonal direita superior
+            // diagonal direita superior
+            pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
             if (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
             }
-            pos.definirValores(posicao.linha, posicao.coluna + 1); // lado direito
+            // lado direito
+            pos.definirValores(posicao.linha, posicao.coluna + 1); 
             if (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
             }
-            pos.definirValores(posicao.linha + 1, posicao.coluna + 1); // diagonal direito inferior
+            // diagonal direito inferior
+            pos.definirValores(posicao.linha + 1, posicao.coluna + 1); 
             if (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
             }
-            pos.definirValores(posicao.linha + 1, posicao.coluna); // abaixo
+            // abaixo
+            pos.definirValores(posicao.linha + 1, posicao.coluna); 
             if (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
             }
-            pos.definirValores(posicao.linha + 1, posicao.coluna - 1); // diagonal esquerda inferior
+            // diagonal esquerda inferior
+            pos.definirValores(posicao.linha + 1, posicao.coluna - 1); 
             if (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
             }
-            pos.definirValores(posicao.linha, posicao.coluna - 1); // lado esquerdo
+            // lado esquerdo
+            pos.definirValores(posicao.linha, posicao.coluna - 1); 
             if (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
             }
-            pos.definirValores(posicao.linha - 1, posicao.coluna - 1); // diagonal esquerda superior
+            // diagonal esquerda superior
+            pos.definirValores(posicao.linha - 1, posicao.coluna - 1); 
             if (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
             }
