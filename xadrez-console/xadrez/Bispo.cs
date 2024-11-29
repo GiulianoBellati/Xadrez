@@ -1,25 +1,37 @@
-﻿using tabuleiro;
+﻿// Importação de namespace
+using tabuleiro;
 
 namespace xadrez {
-    internal class Bispo : Peca{
+    internal class Bispo : Peca { // Essa classe é uma subclasse da classe Peca, portanto o Bispo é uma Peça
+
+        // Construtor:
         public Bispo(Cor cor, Tabuleiro tab) : base(cor, tab) {
         }
 
+        // Métodos:
         public override string ToString() {
+            // Método que retorna o objeto como string
+
             return "B";
         }
 
         private bool podeMover(Posicao pos) {
+            // Método que valida se uma peça pode mover para determinada posição
+
             Peca p = tab.peca(pos);
             return p == null || p.cor != this.cor;
         }
 
         public override bool[,] movimentosPossiveis() {
-            bool[,] mat = new bool[tab.linhas, tab.colunas];
+            // Método que retorna uma matriz booleana de todos o movimentos possíveis para o Cavalo
 
-            Posicao pos = new Posicao(0, 0);
+            bool[,] mat = new bool[tab.linhas, tab.colunas]; // Criando uma matriz do tamanho do tabuleiro
 
-            // diagonal superior esquerda
+            Posicao pos = new Posicao(0, 0); // Instancia uma posição inicialmente na posição 0,0
+
+            // Movimentos:
+
+            // Diagonal superior esquerda:
             pos.definirValores(posicao.linha - 1, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
@@ -28,7 +40,7 @@ namespace xadrez {
                 }
                 pos.definirValores(pos.linha - 1, pos.coluna - 1);
             }
-            // diagonal superior direita
+            // Diagonal superior direita:
             pos.definirValores(posicao.linha - 1, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
@@ -37,7 +49,7 @@ namespace xadrez {
                 }
                 pos.definirValores(pos.linha - 1, pos.coluna + 1);
             }
-            // diagonal inferior direita
+            // Diagonal inferior direita:
             pos.definirValores(posicao.linha + 1, posicao.coluna + 1);
             while (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
@@ -46,7 +58,7 @@ namespace xadrez {
                 }
                 pos.definirValores(pos.linha + 1, pos.coluna + 1);
             }
-            // diagonal inferior esquerda
+            // Diagonal inferior esquerda:
             pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
             while (tab.posicaoValida(pos) && podeMover(pos)) {
                 mat[pos.linha, pos.coluna] = true;
@@ -55,7 +67,8 @@ namespace xadrez {
                 }
                 pos.definirValores(pos.linha + 1, pos.coluna - 1);
             }
-            return mat;
+
+            return mat; // Retorna a matriz preenchida
         }
     }
 }

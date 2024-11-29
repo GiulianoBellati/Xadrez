@@ -16,22 +16,26 @@
         // Métodos:
         public Peca peca(int linha, int coluna) {
             // Método que retorna peça em determinada linha e coluna
+
             return pecas[linha, coluna];
         }
 
         public Peca peca(Posicao pos) {
             // Método que retorna peça em determinada posição
+
             return pecas[pos.linha, pos.coluna];
         }
 
         public bool existePeca(Posicao pos) {
             // Método que valida se existe peça em determinada posição
+
             validarPosicao(pos);
             return peca(pos) != null;
         }
 
         public void colocarPeca(Peca p, Posicao pos) {
             // Método que coloca uma peça em determinada posição se possível
+
             if (existePeca(pos)) { // Validando a posição
                 throw new TabuleiroException("Já existe uma peça nessa posição!"); // Exceção: já existe uma peça nessa posição
             }
@@ -41,12 +45,13 @@
 
         public Peca retirarPeca(Posicao pos) {
             // Método que retira uma peça em determinada posição retornando a peça retirada
+
             if (peca(pos) == null) { // Se não houver peça na posição:
-                return null; // Retorna "null"
+                return null; // Retorna null
             }
             else { // Se houver peça na posição:
                 Peca aux = peca(pos); // Obtém a peça na posição
-                aux.posicao = null; // Seta a posição da peça para "null"
+                aux.posicao = null; // Seta a posição da peça para null
                 pecas[pos.linha, pos.coluna] = null; // Retira a peça da matriz de peças do tabuleiro
                 return aux; // Retorna a peça retirada
             }
@@ -54,6 +59,7 @@
 
         public bool posicaoValida(Posicao pos) {
             // Método para validar se uma posição é válida
+
             if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas) {
                 return false;
             }
@@ -64,6 +70,7 @@
 
         public void validarPosicao (Posicao pos) {
             // Método para forçar tratativa caso a posição escolhida seja inválida
+
             if (!posicaoValida(pos)) {
                 throw new TabuleiroException("Posição inválida!");
             }

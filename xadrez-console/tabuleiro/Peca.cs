@@ -18,16 +18,19 @@
         // Métodos:
         public void incrementarQteMovimento() {
             // Método para incrementar a quantidade de movimentos da peça
+
             qteMovimentos++;
         }
 
         public void decrementarQteMovimento() {
             // Método para decrementar a quantidade de movimentos da peça
+
             qteMovimentos--;
         }
 
         public bool existeMovimentosPossiveis() {
-            // Método para validar se existe movimentos possíveis para a peça percorrendo a matriz "mat"
+            // Método para validar se existe movimentos possíveis para a peça percorrendo a matriz mat
+
             bool[,] mat = movimentosPossiveis(); // Obtém matriz de movimentos possíveis
             for (int i = 0; i < tab.linhas; i++) {
                 for (int j = 0; j < tab.colunas; j++) {
@@ -41,6 +44,7 @@
 
         public bool movimentoPossivel(Posicao pos) {
             // Método para validar se determinada posição de destino é um movimento possível
+
             return movimentosPossiveis()[pos.linha, pos.coluna];
         }
 
